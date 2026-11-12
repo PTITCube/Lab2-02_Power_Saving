@@ -41,10 +41,10 @@ const unsigned long LOAD_ON_DURATION  = 1500;
 void setBuckConverterState(bool enable) {
     if (enable) {
         digitalWrite(PIN_BUCK_CTRL, BUCK_POWER_ON); // GPIO 4 = 0
-        Serial.println("[EPS-BUCK] >>> BẬT Mạch Hạ Áp (GPIO 4 = 0): Cho phép dòng vào hạ áp -> Cấp nguồn 3.3V cho tải tiêu thụ.");
+        Serial.println("[EPS-BUCK] BAT nguon ha ap 3.3V (GPIO 4=0)");
     } else {
         digitalWrite(PIN_BUCK_CTRL, BUCK_POWER_OFF); // GPIO 4 = 1
-        Serial.println("[EPS-BUCK] <<< NGẮT Mạch Hạ Áp (GPIO 4 = 1): Ngắt dòng đi vào hạ áp -> Cắt nguồn tải (Tiết kiệm năng lượng).");
+        Serial.println("[EPS-BUCK] TAT nguon ha ap (GPIO 4=1)");
     }
 }
 
