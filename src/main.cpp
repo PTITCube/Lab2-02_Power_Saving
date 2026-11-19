@@ -13,7 +13,6 @@ const float LOW_SOC_THRESHOLD     = 25.0f;  // Hoặc dưới 25% dung lượng
 void setup() {
     Serial.begin(115200);
     eps.init();
-    Serial.println("EPS: He thong quan ly nang luong san sang");
 }
 
 void loop() {
