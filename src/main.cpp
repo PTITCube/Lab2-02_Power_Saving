@@ -52,7 +52,7 @@ void setup() {
     Serial.begin(115200);
     while (!Serial) { delay(10); }
 
-        Serial.println("[LAB 2-02] ĐIỀU KHIỂN DÒNG RA/VÀO MẠCH HẠ ÁP QUA GPIO 4");
+    Serial.println("[LAB 2-02] ĐIỀU KHIỂN DÒNG RA/VÀO MẠCH HẠ ÁP QUA GPIO 4");
     
     // Cấu hình GPIO 4 là OUTPUT
     pinMode(PIN_BUCK_CTRL, OUTPUT);
@@ -70,12 +70,11 @@ void setup() {
 }
 
 void loop() {
-            
     // 1. Cho phép dòng đi vào mạch hạ áp (GPIO 4 = 0) để cấp điện cho tải
     setBuckConverterState(true);
 
     // 2. Chờ mạch hạ áp ổn định điện áp đầu ra và nạp tụ nguồn (50 - 100 ms)
-        delay(100);
+    delay(100);
 
     // 3. Đọc dữ liệu trạng thái pin từ IC MAX17048
     eps.update();
@@ -83,16 +82,13 @@ void loop() {
     float soc   = eps.getBatteryPercent();
     Serial.printf("[EPS] Trạng thái Pin: Điện áp = %.2f V | Dung lượng = %.1f %%\n", vcell, soc);
 
-    // 4. Giả lập hoạt động của tải tiêu thụ khi mạch hạ áp đang cấp nguồn
-            
-    // Duy trì nguồn trong khoảng thời gian hoạt động định mức
+    // 4. Duy trì nguồn trong khoảng thời gian hoạt động định mức
     delay(LOAD_ON_DURATION);
 
     // 5. Hoàn tất chu kỳ -> Kéo GPIO 4 lên mức 1 để ngắt dòng đi vào hạ áp
-        setBuckConverterState(false);
+    setBuckConverterState(false);
 
     // 6. Nghỉ trong khoảng thời gian LOAD_OFF_DURATION
     Serial.printf("[SYSTEM] Chuyển sang trạng thái tiết kiệm điện trong %lu ms...\n", LOAD_OFF_DURATION);
-        
     delay(LOAD_OFF_DURATION);
 }
