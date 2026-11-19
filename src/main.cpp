@@ -40,6 +40,6 @@ void loop() {
     // 4. Ngắt dòng vào mạch hạ áp để tiết kiệm năng lượng
     setBuckConverterState(false);
 
-    Serial.printf("[EPS] Active (V: %.2fV, SOC: %.1f%%) | Sleeping %lums\n", vcell, soc, LOAD_OFF_DURATION);
+    Serial.printf("EPS: Active (V: %.2fV, SOC: %.1f%%) | Sleeping %lums\n", vcell, soc, LOAD_OFF_DURATION);
     delay(LOAD_OFF_DURATION);
 }
