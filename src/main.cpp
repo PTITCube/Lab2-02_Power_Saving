@@ -26,12 +26,12 @@ void loop() {
     if (isLowPower) {
         // Chế độ tiết kiệm năng lượng: TẮT mạch hạ áp để ngắt tải phụ, kéo dài thời gian ngủ
         eps.setBuckState(false);
-        Serial.printf("EPS: Power Saving Mode (V: %.2fV, SOC: %.1f%%) | Buck OFF | Sleep 5000ms\n", vcell, soc);
+        Serial.printf("EPS: Power Saving Mode (V: %.2fV, SOC: %.1f%%)\n", vcell, soc);
         delay(5000);
     } else {
         // Chế độ hoạt động bình thường: BẬT mạch hạ áp cấp nguồn cho toàn bộ hệ thống
         eps.setBuckState(true);
-        Serial.printf("EPS: Normal Mode (V: %.2fV, SOC: %.1f%%) | Buck ON | Active 1500ms\n", vcell, soc);
+        Serial.printf("EPS: Normal Mode (V: %.2fV, SOC: %.1f%%)\n", vcell, soc);
         delay(1500);
     }
 }
